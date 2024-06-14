@@ -1,0 +1,642 @@
+body {
+  font-family: "Gemunu Libre", sans-serif;
+  background: linear-gradient(to bottom right, #000000, #3533CD);
+  font-family: "Gemunu Libre", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+}
+label {
+  font-weight: bold;
+}
+input[type="text"], input[type="number"] {
+  width: calc(100% - 22px); 
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.btn {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+.btn:hover {
+  background-color: #0056b3;
+}
+.banner {
+  width: 100%;
+  height: 150px;
+  background-image: url(banner_rafael.png);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+.menu {
+  background-color: #1e0467;
+  overflow: hidden;
+  text-align: center; 
+  margin-top: -20px;
+}
+.menu a {
+  display: inline-block; 
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.menu a:hover {
+  background-color:  #007bff;
+  color: rgb(255, 255, 255);
+}
+
+.menu a.atual {
+  background-color: #007bff;
+  color: white;
+}
+
+.menu a.logo img {
+  display: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+  --color-neutral-0: #ffffff;
+  --color-neutral-10: #1c055d;
+  --color-neutral-30: #a8a29e;
+  --color-neutral-40: #ffffff;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+main {
+  height: 80vh;
+}
+
+footer {
+  width: 100%;
+  color: var(--color-neutral-10);
+}
+
+.footer-link {
+  text-decoration: none;
+}
+
+#footer_content {
+  width: 100%; 
+  background-color: var(--color-neutral-10);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem 3.5rem;
+  box-sizing: border-box;
+}
+
+#footer_contacts h1 {
+  margin-bottom: 0.75rem;
+}
+
+#footer_social_media {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+#footer_social_media .footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  color: var(--color-neutral-40);
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+
+#footer_social_media .footer-link i {
+  font-size: 1.25rem;    
+}
+
+#footer_social_media .footer-link:hover {
+  opacity: 0.8;
+}
+
+#youtube {
+  background: darkred;
+}
+
+#email {
+  background-color: #4267b3;
+}
+
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.footer-list .footer-link {
+  color: var(--color-neutral-30);
+  transition: all 0.4s;
+}
+
+.footer-list .footer-link:hover {
+  color: #29bedf;
+}
+
+#footer_subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#footer_subscribe p {
+  color: var(--color-neutral-30);
+}
+
+#input_group {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-neutral-0);
+  border-radius: 4px;
+}
+
+#input_group input {
+  all: unset;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+#input_group button {
+  background-color: #0d8fdb;
+  border: none;
+  color: var(--color-neutral-40);
+  padding: 0px 1.25rem;
+  font-size: 1.125rem;
+  height: 100%;
+  border-radius: 0px 4px 4px 0px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#input_group button:hover {
+  opacity: 0.8;
+}
+
+#footer_copyright {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-neutral-0);
+  font-size: 0.9rem;
+  padding: 1.5rem;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 768px) {
+  #footer_content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  #footer_content {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 3rem 2rem;
+  }
+}
+
+#footer_contacts img {
+  max-width: 100%; 
+  height: auto;
+  max-height: 100px; 
+}
+
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; 
+  font-family: "Gemunu Libre", sans-serif; 
+}
+
+.card1 {
+  flex: 0 0 calc(33.33% - 10px); 
+  margin-right: 10px; 
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: #167cc0; 
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card svg {
+  fill: #000;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 3px;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #000000;
+  background-color: #167cc0;
+  color: #167cc0;
+}
+
+.card__content {
+  color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #167cc0;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+.card2 {
+  flex: 0 0 calc(33.33% - 10px);
+  margin-right: 10px; 
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: #167cc0; 
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card svg {
+  fill: #000;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 3px;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #000000;
+  background-color: #f2f2f2;
+  color: #ffffff;
+}
+
+.card__content {
+  color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+.card3 {
+  flex: 0 0 calc(33.33% - 10px); 
+  margin-right: 10px; 
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: #167cc0; 
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card svg {
+  fill: #000;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 3px;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #000000;
+  background-color: #f2f2f2;
+  color: #ffffff;
+}
+
+.card__content {
+  color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+.card4 {
+  flex: 0 0 calc(33.33% - 10px); 
+  margin-right: 10px; 
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: #167cc0; 
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card svg {
+  fill: #000;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 3px;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #000000;
+  background-color: #f2f2f2;
+  color: #ffffff;
+}
+
+.card__content {
+  color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+
+.card5 {
+  flex: 0 0 calc(33.33% - 10px); 
+  margin-right: 10px; 
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: #167cc0; 
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card svg {
+  fill: #000;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 3px;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #000000;
+  background-color: #f2f2f2;
+  color: #ffffff;
+}
+
+.card__content {
+  color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+
+.card6 {
+  flex: 0 0 calc(33.33% - 10px); 
+  margin-right: 10px; 
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: #167cc0; 
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card svg {
+  fill: #000;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 3px;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #000000;
+  background-color: #f2f2f2;
+  color: #ffffff;
+}
+
+.card__content {
+  color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+
+
+  

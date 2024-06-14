@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cadastro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(
+            90deg,
+            #07227c 50%,
+            rgba(238, 238, 238, 0.842) 50%
+);
+            
+            margin: 0;
+        }
+
+        .banner img{
+            
+            height: 400px; 
+            width: 550px;
+            background-image: url('sua-imagem-banner.jpg'); 
+            background-size: cover;
+            background-position: center;
+            margin-top: 12%;
+            margin-right: 50%;
+        
+        }
+
+        .tela-login {
+            background-color: #ffffff;
+            position: absolute;
+            top: 50%; 
+            left: 75%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 350px;
+            border-radius: 20px;
+            
+        }
+
+        footer {
+            background-color: #ececec;
+            color: #a5a5a5;
+            padding: 30px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        h2 {
+            color: rgb(17, 10, 110);
+            font-family: "Roboto", sans-serif;
+            margin-left: 67%;
+            font-size: 60px;
+        }
+
+        .tela-login p {
+            color: white;
+            margin-bottom: 20px; 
+        }
+
+        .texcadastro{
+           
+            margin-top: -30%;
+        }
+
+        button {
+            border: none;
+            border-radius: 10px;
+            color: rgb(0, 0, 0);
+            background-color: #d1d1d1dc;
+            width: 100px;
+            height: 40px;
+            font-size: 15px;
+        
+        }
+
+        button:hover {
+            background-color: rgb(55, 55, 150);
+            color: #ffffff;
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            background-color: #d1d1d196;
+        }
+        h1{
+            margin-left: 675px;
+            color: #000000;
+            margin-top: 50px;
+        }
+        
+
+        .informacao{
+            margin-top: 50px;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+<center><div class="banner">
+  <img src="logo.png" >
+</div></center>
+
+
+<br>
+
+<center><div class="tela-login">
+    <div class="informacao">
+    <form id="cadastro-form" >
+        <label>E-mail</label>
+        <br><br>
+        <input type="email" id="email"  required>
+        <br><br>
+        <label>Senha</label>
+        <br><br>
+        <input type="password" id="password"  required>
+        <br><br><br>
+        <button type="submit" onclick="go()">Cadastrar</button></center>
+    </form>
+    <p id="error-message"></p>
+</div>
+</div>
+<DIV class="texcadastro">
+    <h2>CADASTRO</h2>
+</DIV>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="firebase-config.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyBSsVe2QAnWeLuz8uj9yGpnnOrycNDvKQc",
+  authDomain: "site-rafa-b6d93.firebaseapp.com",
+  projectId: "site-rafa-b6d93",
+  storageBucket: "site-rafa-b6d93.appspot.com",
+  messagingSenderId: "583626111944",
+  appId: "1:583626111944:web:77dd1664697f0e4ed79efd"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    const cadastroForm = document.getElementById('cadastro-form');
+    const errorMessage = document.getElementById('error-message');
+
+    cadastroForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                
+                window.location.href = 'login_prof.html';
+            })
+            .catch((error) => {
+                errorMessage.textContent = error.message;
+            });
+    });
+
+    function go(){
+        alert('Cadastro realizado com sucesso')
+    }
+
+</script>
+
+</body>
+</html>

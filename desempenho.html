@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Faltas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+ 
+  <style>
+     @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200..800&display=swap');
+    body {
+      font-family: "Gemunu Libre", sans-serif;
+     
+      background: linear-gradient(to bottom right, #000000, #3533CD);
+      font-family: "Gemunu Libre", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"], input[type="number"] {
+      width: calc(100% - 22px); 
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .banner {
+      width: 100%;
+      height: 150px;
+      background-image: url('banner2.png'); 
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+    }
+    .menu {
+      background-color: #1e0467;
+      overflow: hidden;
+      text-align: center;
+      margin-top: -20px;
+    }
+    .menu a {
+      display: inline-block; 
+      color: #f2f2f2;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    .menu a:hover {
+      background-color:  #0056b3;
+      color: black;
+    }
+    .menu a.atual {
+      background-color: #007bff;
+      color: white;
+    }
+    .menu a.logo img {
+      display: none; 
+    }
+    .faltas {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .faltas th, .faltas td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    .faltas th {
+      background-color: #f2f2f2;
+    }
+    .grafico {
+      width: 80px; 
+      height: 80px;
+    }
+  
+    .animated-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 16px 36px;
+      border: 4px solid;
+      border-color: transparent;
+      font-size: 16px;
+      background-color: inherit;
+      border-radius: 100px;
+      font-weight: 600;
+      color: #00008B;
+      box-shadow: 0 0 0 2px #00008B;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .animated-button svg {
+      position: absolute;
+      width: 24px;
+      fill: rgb(173, 255, 47);
+      z-index: 9;
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .animated-button .arr-1 {
+      right: 16px;
+    }
+
+    .animated-button .arr-2 {
+      left: -25%;
+    }
+
+    .animated-button .circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background-color:#00008B;
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .animated-button .text {
+      position: relative;
+      z-index: 1;
+      transform: translateX(-12px);
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .animated-button:hover {
+      box-shadow: 0 0 0 12px transparent;
+      color: whitesmoke;
+      border-radius: 12px;
+    }
+
+    .animated-button:hover .arr-1 {
+      right: -25%;
+    }
+
+    .animated-button:hover .arr-2 {
+      left: 16px;
+    }
+
+    .animated-button:hover .text {
+      transform: translateX(12px);
+    }
+
+    .animated-button:hover svg {
+      fill: greenyellow;
+    }
+
+    .animated-button:active {
+      scale: 0.95;
+      box-shadow: rgb(0, 0, 139);
+    }
+
+    .animated-button:hover .circle {
+      width: 220px;
+      height: 220px;
+      opacity: 1;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+  --color-neutral-0: #ffffff;
+  --color-neutral-10: #1c055d;
+  --color-neutral-30: #a8a29e;
+  --color-neutral-40: #ffffff;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+main {
+  height: 80vh;
+}
+
+footer {
+  width: 100%;
+  color: var(--color-neutral-10);
+  margin-top: 50px;
+}
+
+.footer-link {
+  text-decoration: none;
+}
+
+#footer_content {
+  width: 100%; 
+  background-color: var(--color-neutral-10);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem 3.5rem;
+  box-sizing: border-box;
+}
+
+#footer_contacts h1 {
+  margin-bottom: 0.75rem;
+}
+
+#footer_social_media {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+#footer_social_media .footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  color: var(--color-neutral-40);
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+
+#footer_social_media .footer-link i {
+  font-size: 1.25rem;    
+}
+
+#footer_social_media .footer-link:hover {
+  opacity: 0.8;
+}
+
+#youtube {
+  background: darkred;
+}
+
+#email {
+  background-color: #4267b3;
+}
+
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.footer-list .footer-link {
+  color: var(--color-neutral-30);
+  transition: all 0.4s;
+}
+
+.footer-list .footer-link:hover {
+  color: #29bedf;
+}
+
+#footer_subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#footer_subscribe p {
+  color: var(--color-neutral-30);
+}
+
+#input_group {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-neutral-0);
+  border-radius: 4px;
+}
+
+#input_group input {
+  all: unset;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+#input_group button {
+  background-color: #0d8fdb;
+  border: none;
+  color: var(--color-neutral-40);
+  padding: 0px 1.25rem;
+  font-size: 1.125rem;
+  height: 100%;
+  border-radius: 0px 4px 4px 0px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#input_group button:hover {
+  opacity: 0.8;
+}
+
+#footer_copyright {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-neutral-0);
+  font-size: 0.9rem;
+  padding: 1.5rem;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 768px) {
+  #footer_content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  #footer_content {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 3rem 2rem;
+  }
+}
+
+#footer_contacts img {
+  max-width: 100%; 
+  height: auto;
+  max-height: 100px; 
+}
+   
+  </style>
+</head>
+<body>
+    <div class="banner"></div>
+    
+    <div class="menu">
+      <a href="pag_prof.html">Home</a>
+      <a href="ativ_ead.html">Atividades EAD</a>
+      <a href="avalia_oral.html">Avaliação Oral</a>
+      <a href="material_de_apoio.html">Material de apoio</a>
+      <a href="indicações.html">Indicações</a>
+      <a href="tabela.html">Presença</a>
+      <a class="atual" href="desempenho.html">Desempenho</a>
+    </div>
+<br>
+<br>
+  <div class="container">
+    <h1>Controle de notas</h1>
+    <form id="formFalta">
+      <label for="aluno">Aluno:</label>
+      <input list="browsers" type="text" id="aluno" name="aluno" placeholder="Nome do Aluno" required>
+      <datalist id="browsers">
+
+        <option value="Ana Carolina Alves De Souza">
+          <option value="Bianca Beatriz Pereira De Matos">
+          <option value="Bruna Menezes Rodrigues">
+          <option value="Carolina Ladeia Dos Santos">
+          <option value="Caroline Sábio Anunciato">
+          <option value="Carolyne Isabely Ribeiro Santos">
+          <option value="Ester Bernardes Silva">
+          <option value="Fabricio Pinheiro Da Silva">
+          <option value="Fernanda Souza Oliveira">
+          <option value="Gabriel De Souza Dias Pereira">
+          <option value="Giulio Mezini Severino">
+          <option value="Gustavo Ferreira De Souza">
+          <option value="Henrique Dourado Domingos">
+          <option value="Íris Oliveira Santos">
+          <option value="Isaac Soares Dos Santos Faria">
+          <option value="Isabelli Luz Ramalho">
+          <option value="Laura Bandeira Antunes">
+          <option value="Lucas De Moura Garcia">
+          <option value="Marcela Amaral De Oliveira">
+          <option value="Maria Eduarda Campos Jardim">
+          <option value="Maria Eduarda Rodrigues Marcelino">
+          <option value="Mateus Braz Da Silva">
+          <option value="Milena Bitencourt De Jesus">
+          <option value="Murilo Vasconcelos Gomes">
+          <option value="Nicolas Borges Natal">
+          <option value="Otávio De Aquino Dos Santos">
+          <option value="Pedro Rodrigues Dos Santos">
+          <option value="Rafaela Dias Pereira">
+          <option value="Rafaela Fernandes Lima">
+          <option value="Renato Silva Lourencio">
+          <option value="Ryan Ferreira De Carvalho">
+          <option value="Sarah Matumoto Santos">
+          <option value="Victor Lira Da Silva">
+          <option value="Vinicius Vieira">
+      </datalist>
+      <br>
+      <label for="notaOral">Oral:</label>
+      <input type="number" id="notaOral" name="notaOral" min="0" max="100" required>
+      <br>
+      <label for="notaPratica">Prática:</label>
+      <input type="number" id="notaPratica" name="notaPratica" min="0" max="100" required>
+      <br>
+      <label for="notaEscrita">Escrita:</label>
+      <input type="number" id="notaEscrita" name="notaEscrita" min="0" max="100" required>
+      <br>
+      <button type="button" onclick="adicionarNota()" class="animated-button">
+        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+          ></path>
+        </svg>
+        <span class="text">Registrar</span>
+        <span class="circle"></span>
+        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+          ></path>
+        </svg>
+      </button>
+    </form>
+    <table class="faltas" id="tabelaFaltas">
+      <thead>
+        <tr>
+          <th>Aluno</th>
+          <th>Oral</th>
+          <th>Prática</th>
+          <th>Escrita</th>
+          <th>Média</th>
+          <th>Gráfico</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+  <footer>
+    <div id="footer_content">
+        <div id="footer_contacts">
+           <img src="logo.png">
+
+            <div id="footer_social_media">
+                <a href="mailto:prof.rafael.moreira@gmail.com" class="footer-link" id="email">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+
+                <a href="https://youtube.com/@prof.rafaell.moreira9514?si=A4dbk9nsLnz7JdM3" class="footer-link" id="youtube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+
+        <ul class="footer-list">
+            <li>
+                <a href="ativ_ead.html" class="footer-link">Atividade Ead</a>
+            </li>
+            <li>
+                <a href="avalia_oral.html" class="footer-link">Avaliação Oral</a>
+            </li>
+            <li>
+                <a href="material_de_apoio.html" class="footer-link">Material de apoio</a>
+            </li>
+        </ul>
+
+        <ul class="footer-list">
+           
+            <li>
+                <a href="indicações.html" class="footer-link">Indicações</a>
+            </li>
+            <li>
+                <a href="tabela.html" class="footer-link">Presença</a>
+            </li>
+            <li>
+                <a href="desempenho.html" class="footer-link">Desempenho</a>
+            </li>
+        </ul>
+
+        <div id="footer_subscribe">
+            <h3>Contato</h3>
+
+            <p>
+                prof.rafael.moreira@gmail.com 
+            </p>
+
+            <div id="input_group">
+                <input type="email" id="email">
+                <button>
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer_copyright">
+        &#169
+        2024 - design by Bruna Menezes, Carolyne Isabely, Isabelii Luz, Maria Eduarda Campos
+    </div>
+</footer>
+
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBSsVe2QAnWeLuz8uj9yGpnnOrycNDvKQc",
+      authDomain: "site-rafa-b6d93.firebaseapp.com",
+      projectId: "site-rafa-b6d93",
+      storageBucket: "site-rafa-b6d93.appspot.com",
+      messagingSenderId: "583626111944",
+      appId: "1:583626111944:web:77dd1664697f0e4ed79efd"
+    };
+
+
+    firebase.initializeApp(firebaseConfig);
+
+   
+    const database = firebase.database();
+
+   
+    function adicionarNota() {
+      const aluno = document.getElementById('aluno').value;
+      const notaOral = parseInt(document.getElementById('notaOral').value);
+      const notaPratica = parseInt(document.getElementById('notaPratica').value);
+      const notaEscrita = parseInt(document.getElementById('notaEscrita').value);
+
+
+      const media = (notaOral + notaPratica + notaEscrita) / 3;
+
+      database.ref('notas').push({
+        aluno: aluno,
+        notaOral: notaOral,
+        notaPratica: notaPratica,
+        notaEscrita: notaEscrita,
+        media: media
+      });
+
+
+      document.getElementById('aluno').value = '';
+      document.getElementById('notaOral').value = '';
+      document.getElementById('notaPratica').value = '';
+      document.getElementById('notaEscrita').value = '';
+    }
+
+
+    function atualizarTabela(snapshot) {
+      const tableBody = document.querySelector('#tabelaFaltas tbody');
+      tableBody.innerHTML = '';
+
+      snapshot.forEach(childSnapshot => {
+        const { aluno, notaOral, notaPratica, notaEscrita, media } = childSnapshot.val();
+        const row = tableBody.insertRow();
+        row.innerHTML = `
+          <td>${aluno}</td>
+          <td>${notaOral}</td>
+          <td>${notaPratica}</td>
+          <td>${notaEscrita}</td>
+          <td>${media !== undefined ? media.toFixed(2) : 'N/A'}</td>
+          <td>
+            <canvas class="grafico"></canvas>
+          </td>
+        `;
+
+        const grafico = row.querySelector('.grafico');
+
+
+        new Chart(grafico, {
+          type: 'doughnut',
+          data: {
+            labels: ['Média', 'Restante'],
+            datasets: [{
+              label: 'Média das Notas',
+              data: [media, 100 - media],
+              backgroundColor: [
+                'rgba(173, 255, 47)',
+                'rgba(0, 0, 139)',
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+  cutoutPercentage: 75,
+  responsive: false,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      display: false 
+    }
+  }
+}
+        });
+      });
+    }
+
+
+    database.ref('notas').on('value', snapshot => {
+      atualizarTabela(snapshot);
+    });
+  </script>
+</body>
+</html>

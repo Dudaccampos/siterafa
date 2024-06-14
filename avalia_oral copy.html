@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site do Rafa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+        body {
+          font-family: "Gemunu Libre", sans-serif;
+          background: linear-gradient(to bottom right, #000000, #3533CD);
+          margin: 0;
+          padding: 0;
+          min-height: 100vh; 
+          display: flex;
+          flex-direction: column;
+        }
+      
+        .banner {
+          width: 100%;
+          height: 150px;
+          background-image: url('banner_rafael.png'); 
+          background-size: cover;
+          background-position: center;
+          margin-bottom: 20px;
+        }
+      
+        .menu {
+          background-color: #1e0467;
+          overflow: hidden;
+          text-align: center; 
+          margin-top: -20px;
+        }
+        .menu a {
+          display: inline-block; 
+          color: #f2f2f2;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        .menu a:hover {
+          background-color: #0056b3;
+          color: whitesmoke;
+        }
+        .menu a.atual {
+          background-color: #007bff;
+          color: white;
+        }
+        .menu a.logo img {
+          display: none;
+        }
+        .menu-extension {
+            margin-left: 15px;
+            margin-top: 10px; 
+            position: relative; 
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-extension .cta {
+            margin-top: 20px;
+            margin-left: 15px;
+        }
+
+        .menu-extension .menu-text {
+            color: white;
+            font-family: "Staatliches", sans-serif;
+            margin-left: 10px;
+        }
+
+        .cta {
+            position: relative;
+            margin: auto;
+            padding: 12px 18px;
+            transition: all 0.2s ease;
+            border: none;
+            background: #000075;
+            cursor: pointer;
+            color: #ffffff; 
+            border-radius: 25px;
+            margin-left: 10px;
+        }
+
+        .cta:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            border-radius: 50px;
+            background:#0056b3; 
+            width: 45px;
+            height: 45px;
+            transition: all 0.3s ease;
+        }
+
+        .cta span {
+            position: relative;
+            font-family: "Ubuntu", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #ffffff; 
+        }
+
+        .cta svg {
+            position: relative;
+            top: 0;
+            margin-left: 10px;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke: #ffffff;
+            stroke-width: 2;
+            transform: translateX(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .cta:hover:before {
+            width: 100%;
+            background: #0056b3; 
+        }
+
+        .cta:hover svg {
+            transform: translateX(0);
+        }
+
+        .cta:active {
+            transform: scale(0.95);
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width: 200px;
+        }
+
+        .card:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #000075;
+            font-weight: bold;
+            position: relative; 
+        }
+
+        .card a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            background: blue;
+            transition: width 0.3s;
+            bottom: -2px;
+            left: 0;
+        }
+
+        .card a:hover::after {
+            width: 100%;
+        }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+  --color-neutral-0: #ffffff;
+  --color-neutral-10: #1c055d;
+  --color-neutral-30: #a8a29e;
+  --color-neutral-40: #ffffff;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+main {
+  height: 80vh;
+}
+
+footer {
+  width: 100%;
+  color: var(--color-neutral-10);
+  margin-top: 50px;
+}
+
+.footer-link {
+  text-decoration: none;
+}
+
+#footer_content {
+  width: 100%; 
+  background-color: var(--color-neutral-10);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem 3.5rem;
+  box-sizing: border-box;
+}
+
+#footer_contacts h1 {
+  margin-bottom: 0.75rem;
+}
+
+#footer_social_media {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+#footer_social_media .footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  color: var(--color-neutral-40);
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+
+#footer_social_media .footer-link i {
+  font-size: 1.25rem;    
+}
+
+#footer_social_media .footer-link:hover {
+  opacity: 0.8;
+}
+
+#youtube {
+  background: darkred;
+}
+
+#email {
+  background-color: #4267b3;
+}
+
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.footer-list .footer-link {
+  color: var(--color-neutral-30);
+  transition: all 0.4s;
+}
+
+.footer-list .footer-link:hover {
+  color: #29bedf;
+}
+
+#footer_subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#footer_subscribe p {
+  color: var(--color-neutral-30);
+}
+
+#input_group {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-neutral-0);
+  border-radius: 4px;
+}
+
+#input_group input {
+  all: unset;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+#input_group button {
+  background-color: #0d8fdb;
+  border: none;
+  color: var(--color-neutral-40);
+  padding: 0px 1.25rem;
+  font-size: 1.125rem;
+  height: 100%;
+  border-radius: 0px 4px 4px 0px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#input_group button:hover {
+  opacity: 0.8;
+}
+
+#footer_copyright {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-neutral-0);
+  font-size: 0.9rem;
+  padding: 1.5rem;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 768px) {
+  #footer_content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  #footer_content {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 3rem 2rem;
+  }
+}
+
+#footer_contacts img {
+  max-width: 100%; 
+  height: auto;
+  max-height: 100px; 
+}
+</style>
+</head>
+<body>
+    <div class="banner"></div>
+    
+    <div class="menu">
+      <a href="pag_aluno.html">Home</a>
+      <a href="ativ_ead copy.html">Atividades EAD</a>
+      <a class="atual" href="avalia_oral copy.html">Avaliação Oral</a>
+      <a href="material_de_apoio copy.html">Material de apoio</a>
+      <a href="indicações copy.html">Indicações</a>
+     
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+        <div class="cards">
+            <div class="card">
+                <a href="https://docs.google.com/document/d/1lQcmuXfQUhXhr6bFgm3aLS_x-GOvXoZHIUPynBmQUVo/edit?pli=1">1° EM</a>
+            </div>
+            <div class="card">
+                <a href="https://docs.google.com/document/d/1pa8CJQ3jJt3HM8MoAYnmO1Uvo6CBFJc666KT0VyX8qA/edit">2° EM</a>
+            </div>
+            <div class="card">
+                <a href="https://docs.google.com/document/d/1thcjOZ0C5FXpGTuNSnTyWVPORmN6PeYDcp-JB1xao-o/edit">3° EM</a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <footer>
+        <div id="footer_content">
+            <div id="footer_contacts">
+               <img src="logo.png">
+
+                <div id="footer_social_media">
+                    <a href="mailto:prof.rafael.moreira@gmail.com" class="footer-link" id="email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+
+                    <a href="https://youtube.com/@prof.rafaell.moreira9514?si=A4dbk9nsLnz7JdM3" class="footer-link" id="youtube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <ul class="footer-list">
+                <li>
+                    <a href="ativ_ead.html" class="footer-link">Atividade Ead</a>
+                </li>
+                <li>
+                    <a href="avalia_oral.html" class="footer-link">Avaliação Oral</a>
+                </li>
+                <li>
+                    <a href="material_de_apoio.html" class="footer-link">Material de apoio</a>
+                </li>
+            </ul>
+
+            <ul class="footer-list">
+               
+                <li>
+                    <a href="indicações.html" class="footer-link">Indicações</a>
+                </li>
+            </ul>
+
+            <div id="footer_subscribe">
+                <h3>Contato</h3>
+
+                <p>
+                    prof.rafael.moreira@gmail.com 
+                </p>
+
+                <div id="input_group">
+                    <input type="email" id="email">
+                    <button>
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_copyright">
+            &#169
+            2024 - design by Bruna Menezes, Carolyne Isabely, Isabelii Luz, Maria Eduarda Campos
+        </div>
+    </footer>
+</body>
+</html>

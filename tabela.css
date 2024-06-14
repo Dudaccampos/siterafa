@@ -1,0 +1,56 @@
+.container {
+    max-width: 600px; 
+    height: auto;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center; 
+}
+
+.container h1{
+    font-size: 30px;
+}
+
+.action {
+    float: right;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #0f3a90; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease; 
+}
+
+button:hover {
+    background-color: #337cfa; 
+}
+
+.table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto; 
+    background-color: white; 
+    border: 1px solid black; 
+    border-radius: 7px;
+    overflow: hidden; 
+    text-align: left; 
+}
+
+.table th, .table td { 
+    border: 1px solid black; 
+    padding: 8px;
+}
+
+.table th {
+    background-color: #0f3a90; 
+    color: white; 
+    font-weight: bold;
+    text-align: center;
+}

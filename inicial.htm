@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <style>
+     @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Seymour+One&display=swap');
+        body {
+            font-family: "Amatic SC", sans-serif;
+    margin: 0;
+    color: white;
+            background: linear-gradient(180deg, #170e68, #2b2e79, #4e519f, #00bfff); /* Gradiente conforme a imagem */
+            background-size: cover;
+
+        }
+
+        .banner {
+            height: 200px; 
+            background-size: cover;
+            background-position: center;
+        }
+        .banner img{
+            width: 150px;
+            height: 150px;
+        }
+
+        .container {
+            margin-top: 40px; 
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .tela-pag1, .tela-pag2 {
+            background-color: rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 30px;
+            width: 300px; 
+            margin: 0 19px;
+        }
+
+
+        h1, h2 {
+            text-align: center;
+          color: black;
+        }
+
+        .tela-pag1 p, .tela-pag2 p {
+            color: black;
+        }
+
+        button {
+            border: none;
+            border-radius: 20px;
+            color: white;
+            background-color: rgb(13, 13, 97);
+            width: 100px;
+            height: 40px;
+            font-size: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: rgb(43, 43, 150);
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+            background-color: #e7e5e5;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="banner">
+   <img src="logoi.png">
+</div>
+
+
+
+<div class="container">
+    <div class="form-container">
+        <div class="tela-pag1">
+            <center>
+                <h1>Sou aluno</h1>
+                <img src='alunos.png' style="width: 80px;">
+                <br><br>
+                <a href='login.html'><button>Login</button></a>
+                <br><br>
+                <a href='cadastro.html'><button>Cadastre-se</button></a>
+            </center>
+        </div>
+
+        <div class="tela-pag2">
+            <center>
+                <h1>Sou professor</h1>
+                <img src='professor.png' style="width: 80px;">
+                <br><br>
+                <a href='login_prof.html'><button>Login</button></a>
+                <br><br>
+                <a href='cadastro copy.html'><button>Cadastre-se</button></a>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

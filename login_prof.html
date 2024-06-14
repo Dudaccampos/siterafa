@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+        body {
+            font-family:"Amatic SC", sans-serif;
+            background: rgb(9, 17, 117);
+            margin: 0;
+        }
+
+        .banner {
+            height: 200px; 
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            margin-left:850px;
+            color: #e7e5e5;
+            margin-top: -60px;
+            size: 100px;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+            background-color: #10083a;
+            margin-top: 50px;
+            height: 500px;
+            padding: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin-left: 25%; 
+        }
+
+        .photo-section {
+            flex: 1;
+            padding: 20px; 
+        }
+
+        .photo-section img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .section-form {
+            flex: 1;
+            padding: 20px;
+            color: #ffffff; 
+        }
+
+        .section-form h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            margin-left: 100px;
+        }
+
+        .section-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-form label {
+            margin-bottom: 8px;
+            font-size: 16px;
+            
+        }
+
+        .section-form input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 450px;
+            margin-left: 100px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .button-group .button {
+            padding: 10px 20px;
+            height: 42px;
+            width: 115px;
+            background: #a9a1e8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Raleway", sans-serif;
+            font-size: 16px;
+            text-align: center;
+        }
+
+      
+
+        .button {
+  background-color: #ffffff00;
+  color: #fff;
+  width: 8.5em;
+  height: 2.9em;
+  border: #3654ff 0.2em solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+  margin-left: 450px;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #3654ff;
+  cursor: pointer;
+}
+
+.button svg {
+  width: 1.6em;
+  margin: -0.2em 0.8em 1em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.button:hover svg {
+  transform: translateX(5px);
+}
+
+.text {
+  margin: 0 1.5em
+}
+.input {
+  margin-top: 1rem;
+  border-radius: 10px;
+  outline: 2px solid #00a6fb;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #d6f1ff;
+  outline-offset: 3px;
+  padding: 10px 12.5px;
+  transition: all 0.2s ease;
+  width: 250px;
+}
+
+.input:hover {
+  background-color: #fff;
+}
+
+.input:focus {
+  outline-offset: -6px;
+  background-color: #d6f1ff;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="banner">
+   <img src="logoi.png">
+</div>
+<h1>Página do professor</h1>
+ 
+<div class="container">
+    <div class="photo-section">
+        <img src="lado2.png" alt="Foto">
+    </div>
+    <section class="section-form">
+        <form id="login-form">
+            <h1 class="titulo">Bem vindo, faça o seu login!</h1>
+            <input class="input" placeholder="Email" type="email" id="email">
+            <input class="input" placeholder="Senha" type="password" id="senha">
+        
+            <button type="submit" class="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+    </svg>
+  
+    
+    <div class="text">
+     Entrar
+    </div>
+  
+  </button>
+        </form>
+        <p id="error-message" style="color: red;"></p>
+    </section>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyBSsVe2QAnWeLuz8uj9yGpnnOrycNDvKQc",
+        authDomain: "site-rafa-b6d93.firebaseapp.com",
+        projectId: "site-rafa-b6d93",
+        storageBucket: "site-rafa-b6d93.appspot.com",
+        messagingSenderId: "583626111944",
+        appId: "1:583626111944:web:77dd1664697f0e4ed79efd"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    const loginForm = document.getElementById('login-form');
+    const errorMessage = document.getElementById('error-message');
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('senha').value;
+
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Login bem-sucedido, redireciona para a página inicial específica do professor
+                window.location.href = 'pag_prof.html';
+            })
+            .catch((error) => {
+                errorMessage.textContent = error.message;
+            });
+    });
+</script>
+
+</body>
+</html>

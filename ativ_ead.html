@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+      
+        body {
+          font-family: "Gemunu Libre", sans-serif;
+          background: linear-gradient(to bottom right, #000000, #3533CD);
+          margin: 0;
+          padding: 0;
+          min-height: 100vh; 
+          display: flex;
+          flex-direction: column;
+        }
+      
+        .banner {
+          width: 100%;
+          height: 150px;
+          background-image: url('banner_rafael.png'); 
+          background-size: cover;
+          background-position: center;
+          margin-bottom: 20px;
+        }
+      
+        .menu {
+          background-color: #1e0467;
+          overflow: hidden;
+          text-align: center; 
+          margin-top: -20px;
+        }
+        .menu a {
+          display: inline-block;
+          color: #f2f2f2;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        .menu a:hover {
+          background-color: #0056b3;
+          color: whitesmoke;
+        }
+        .menu a.atual {
+          background-color: #007bff;
+          color: white;
+        }
+        .menu a.logo img {
+          display: none; 
+        }
+      
+        .cards-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap; 
+          margin-top: 20px;
+          flex-grow: 1; 
+        }
+      
+        .card {
+          width: 200px;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+          margin: 10px;
+        }
+        .card:hover {
+          transform: translateY(-5px);
+        }
+        .card img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px 10px 0 0;
+          transition: opacity 0.3s ease;
+        }
+        .card:hover img {
+          opacity: 0.8;
+        }
+      
+        .container {
+          max-width: 800px;
+          margin: 20px auto;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: whitesmoke;
+        }
+        .card-content {
+          color: white;
+      }
+        h1 {
+          text-align: center;
+        }
+        label {
+          font-weight: bold;
+        }
+        input[type="text"], input[type="number"] {
+          width: calc(100% - 22px); 
+          padding: 10px;
+          margin-bottom: 20px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+        .btn {
+          width: 100%;
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s;
+        }
+        .btn:hover {
+          background-color: #0056b3;
+        }
+        .title {
+        margin: 20px 0;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+      }
+      
+        .calculator-icon {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+          margin-top: 50px;
+        }
+      
+       
+        .calculator {
+          position: fixed;
+          bottom: 80px;
+          right: 20px;
+          width: 300px;
+          padding: 20px;
+          background: #1e3c72; 
+          background: linear-gradient(to right, #2a5298, #1e3c72);
+          box-shadow: 0 0 20px rgba(0,0,0,0.2);
+          border-radius: 10px;
+          display: none;
+          margin-top: -20px;
+        }
+        .calculator input {
+          width: calc(100% - 20px);
+          padding: 10px;
+          margin-bottom: 10px;
+          text-align: right;
+          border: none;
+          border-radius: 5px;
+          font-size: 20px;
+          background-color: #f0f0f0; 
+          color: #333;
+        }
+        .calculator button {
+          width: 22%;
+          padding: 10px;
+          margin: 1%;
+          font-size: 18px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          background-color: #2a5298;
+          color: white;
+          transition: background-color 0.3s;
+        }
+        .calculator button:hover {
+          background-color: #1e3c72; 
+        }
+        .calculator button:active {
+          background-color: #163b6c; 
+        }
+        .calculator-icon{
+          width: 150px;
+          height: 150px;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+  --color-neutral-0: #ffffff;
+  --color-neutral-10: #1c055d;
+  --color-neutral-30: #a8a29e;
+  --color-neutral-40: #ffffff;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+main {
+  height: 80vh;
+}
+
+footer {
+  width: 100%;
+  color: var(--color-neutral-10);
+}
+
+.footer-link {
+  text-decoration: none;
+}
+
+#footer_content {
+  width: 100%; 
+  background-color: var(--color-neutral-10);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem 3.5rem;
+  box-sizing: border-box;
+}
+
+#footer_contacts h1 {
+  margin-bottom: 0.75rem;
+}
+
+#footer_social_media {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+#footer_social_media .footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  color: var(--color-neutral-40);
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+
+#footer_social_media .footer-link i {
+  font-size: 1.25rem;    
+}
+
+#footer_social_media .footer-link:hover {
+  opacity: 0.8;
+}
+
+#youtube {
+  background: darkred;
+}
+
+#email {
+  background-color: #4267b3;
+}
+
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.footer-list .footer-link {
+  color: var(--color-neutral-30);
+  transition: all 0.4s;
+}
+
+.footer-list .footer-link:hover {
+  color: #29bedf;
+}
+
+#footer_subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#footer_subscribe p {
+  color: var(--color-neutral-30);
+}
+
+#input_group {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-neutral-0);
+  border-radius: 4px;
+}
+
+#input_group input {
+  all: unset;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+#input_group button {
+  background-color: #0d8fdb;
+  border: none;
+  color: var(--color-neutral-40);
+  padding: 0px 1.25rem;
+  font-size: 1.125rem;
+  height: 100%;
+  border-radius: 0px 4px 4px 0px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#input_group button:hover {
+  opacity: 0.8;
+}
+
+#footer_copyright {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-neutral-0);
+  font-size: 0.9rem;
+  padding: 1.5rem;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 768px) {
+  #footer_content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  #footer_content {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 3rem 2rem;
+  }
+}
+
+#footer_contacts img {
+  max-width: 100%; 
+  height: auto;
+  max-height: 100px; 
+}
+</style>
+<script>
+    function openCalculator() {
+      document.querySelector('.calculator').style.display = 'block';
+    }
+    function closeCalculator() {
+      document.querySelector('.calculator').style.display = 'none';
+    }
+    function insert(num) {
+      document.form.textview.value = document.form.textview.value + num;
+    }
+    function equal() {
+      let exp = document.form.textview.value;
+      if(exp) {
+        document.form.textview.value = eval(exp);
+      }
+    }
+    function clean() {
+      document.form.textview.value = "";
+    }
+    function back() {
+      let exp = document.form.textview.value;
+      document.form.textview.value = exp.substring(0, exp.length - 1);
+    }
+    
+  </script>
+</head>
+<body>
+    <div class="banner"></div>
+    
+    <div class="menu">
+      <a href="pag_prof.html">Home</a>
+      <a class="atual" href="#">Atividades EAD</a>
+      <a href="avalia_oral.html">Avaliação Oral</a>
+      <a href="material_de_apoio.html">Material de apoio</a>
+      <a href="indicações.html">Indicações</a>
+      <a href="tabela.html">Presença</a>
+      <a href="desempenho.html">Desempenho</a>
+    </div>
+    
+      </div>
+      <div class="title">Atividades Ead</div>
+      <div class="cards-container">
+        <div class="card" onclick="window.location.href='https://pt.khanacademy.org/brasil?utm_account=Grant&utm_campaignname=Grant_Brasil_prepare_n_inst&gad_source=1&gclid=CjwKCAjwgpCzBhBhEiwAOSQWQaYpL6tauJfmI7ScCm5DEnJU-8OnLgeaiJ3aN9Y0PjTw-sBW7R0lTxoC7wcQAvD_BwE'">
+          <img src="KHANACADEMY.png" alt="Card 1">
+          <div class="card-content">
+            <h3>Khan Academy</h3>
+            <p>Realização das recomendações propostas na plataforma Khan Academy</p>
+          </div>
+        </div>
+    
+        <div class="card" onclick="window.location.href='https://youtu.be/Ue5fd8EgAd8?si=CyeO5W58yt-uVty9'">
+          <img src="youtube.png" alt="Card 2">
+          <div class="card-content">
+            <h3>Youtube</h3>
+            <p>Dicas para os Exercícios Complementares - disponível na playlist do canal do YouTube (Prof. Rafael Moreira).</p>
+          </div>
+        </div>
+    
+        <div class="card" onclick="window.location.href='https://www.geekie.com.br/'">
+          <img src="geekie.png" alt="Card 3">
+          <div class="card-content">
+            <h3>Geekie</h3>
+            <p>Realização da sequência de atividades sugerida na plataforma Geekie.</p>
+          </div>
+        </div>
+      </div>
+    
+      <img src="Design sem nome(1).png" alt="Calculator" class="calculator-icon" onclick="openCalculator()">
+    
+      <div class="calculator">
+        <form name="form">
+          <input type="text" name="textview" readonly>
+        </form>
+        <button onclick="insert(7)">7</button>
+        <button onclick="insert(8)">8</button>
+        <button onclick="insert(9)">9</button>
+        <button onclick="back()">←</button>
+        <button onclick="insert(4)">4</button>
+        <button onclick="insert(5)">5</button>
+        <button onclick="insert(6)">6</button>
+        <button onclick="insert('/')">/</button>
+        <button onclick="insert(1)">1</button>
+        <button onclick="insert(2)">2</button>
+        <button onclick="insert(3)">3</button>
+        <button onclick="insert('*')">*</button>
+        <button onclick="insert(0)">0</button>
+        <button onclick="clean()">C</button>
+        <button onclick="insert('+')">+</button>
+        <button onclick="insert('-')">-</button>
+        <button onclick="equal()" style="width: calc(100% - 22px)">=</button>
+        <button onclick="closeCalculator()" style="width: calc(100% - 22px)">Fechar</button>
+      </div>
+      <br>
+      <br>
+      <footer>
+        <div id="footer_content">
+            <div id="footer_contacts">
+               <img src="logo.png">
+
+                <div id="footer_social_media">
+                    <a href="mailto:prof.rafael.moreira@gmail.com" class="footer-link" id="email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+
+                    <a href="https://youtube.com/@prof.rafaell.moreira9514?si=A4dbk9nsLnz7JdM3" class="footer-link" id="youtube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <ul class="footer-list">
+                <li>
+                    <a href="ativ_ead.html" class="footer-link">Atividade Ead</a>
+                </li>
+                <li>
+                    <a href="avalia_oral.html" class="footer-link">Avaliação Oral</a>
+                </li>
+                <li>
+                    <a href="material_de_apoio.html" class="footer-link">Material de apoio</a>
+                </li>
+            </ul>
+
+            <ul class="footer-list">
+               
+                <li>
+                    <a href="indicações.html" class="footer-link">Indicações</a>
+                </li>
+                <li>
+                    <a href="tabela.html" class="footer-link">Presença</a>
+                </li>
+                <li>
+                    <a href="desempenho.html" class="footer-link">Desempenho</a>
+                </li>
+            </ul>
+
+            <div id="footer_subscribe">
+                <h3>Contato</h3>
+
+                <p>
+                    prof.rafael.moreira@gmail.com 
+                </p>
+
+                <div id="input_group">
+                    <input type="email" id="email">
+                    <button>
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_copyright">
+            &#169
+            2024 - design by Bruna Menezes, Carolyne Isabely, Isabelii Luz, Maria Eduarda Campos
+        </div>
+    </footer>
+    </body>
+    </html>
+</body>
+</html>
